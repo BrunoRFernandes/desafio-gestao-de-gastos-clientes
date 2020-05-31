@@ -1,2 +1,2 @@
 # desafio-gestao-de-gastos-clientes
-Desafio de Gestão de Gastos
+Desafio Gestão de Gastos
