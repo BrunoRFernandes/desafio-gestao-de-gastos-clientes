@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import br.com.gft.clientes.client.GastosClient;
 import br.com.gft.clientes.dto.ClienteDTO;
-import br.com.gft.clientes.dto.GastoDTO;
 import br.com.gft.clientes.model.Cliente;
+import br.com.gft.clientes.model.Gasto;
 import br.com.gft.clientes.repository.ClienteRepository;
 
 @Service
@@ -40,9 +40,9 @@ public class ClienteService {
 		return listaGasto;
 	}
 	
-	public List<GastoDTO> listaGastos(Long id) {
+	public List<Gasto> listaGastos(Long id) {
 	
-		List<GastoDTO> list = gastosClient.listaPorCliente(id);
+		List<Gasto> list = gastosClient.listaPorCliente(id);
 		
 		return list;
 	}
