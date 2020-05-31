@@ -52,7 +52,7 @@ public class ClienteService {
 	
 	public List<GastoDTO> listaGastos(Long id) {
 	
-		List<GastoDTO> list = gastosClient.listaPorCLiente(id);
+		List<GastoDTO> list = gastosClient.listaPorCliente(id);
 		
 		return list;
 	}
