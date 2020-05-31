@@ -11,6 +11,6 @@ import br.com.gft.clientes.dto.GastoDTO;
 @FeignClient("gastos")
 public interface GastosClient {
 	
-	@RequestMapping("/listarPorCliente/{id}")
-	List<GastoDTO> listaPorCLiente(@PathVariable Long id);
+	@RequestMapping("/gastos/listarPorCliente/{id}")
+	List<GastoDTO> listaPorCliente(@PathVariable Long id);
 }
