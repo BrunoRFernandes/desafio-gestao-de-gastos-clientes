@@ -2,6 +2,8 @@ package br.com.gft.clientes.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,8 @@ import br.com.gft.clientes.repository.ClienteRepository;
 @Service
 public class ClienteService {
 	
+	Logger logger = LoggerFactory.getLogger(ClienteService.class);
+	
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
@@ -22,16 +26,22 @@ public class ClienteService {
 	
 	public Cliente setCliente(ClienteDTO cliente) {
 		
-		Cliente novoCliente = new Cliente(
-				cliente.getName(),
-				cliente.getLogin(),
-				cliente.getPassword(),
-				cliente.getTipoUsuario()
-		);
-		
-		clienteRepository.save(novoCliente);
-		
-		return novoCliente;
+		try {
+			Cliente novoCliente = new Cliente(
+					cliente.getName(),
+					cliente.getLogin(),
+					cliente.getPassword(),
+					cliente.getTipoUsuario()
+			);
+			
+			logger.info("Cliente cadastrado com sucesso.");
+			clienteRepository.save(novoCliente);
+			return novoCliente;
+			
+		} catch (Exception exceptionCliente) {
+			logger.error("Error: " + exceptionCliente.getMessage());
+			return null;
+		}
 	}
 
 	public List<Cliente> lista() {
