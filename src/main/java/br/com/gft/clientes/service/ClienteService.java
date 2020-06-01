@@ -1,5 +1,6 @@
 package br.com.gft.clientes.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -50,9 +51,16 @@ public class ClienteService {
 		return listaGasto;
 	}
 	
-	public List<Gasto> listaGastos(Long id) {
+	public List<Gasto> listaGastosPorCliente(Long id) {
 	
 		List<Gasto> list = gastosClient.listaPorCliente(id);
+		
+		return list;
+	}
+	
+	public List<Gasto> listaGastosPorClienteEData(Long id, Date data) {
+		
+		List<Gasto> list = gastosClient.listaPorClienteEData(id,data);
 		
 		return list;
 	}
